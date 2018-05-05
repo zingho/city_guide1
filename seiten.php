@@ -84,11 +84,16 @@
 
 			$result = $connect->query($sql);
 			while($zeile = $result->fetch_assoc()){
-      echo '<img src="' . $zeile['Bild'] . '"> </div></br></br>';
-			echo '<div class="row">' . $zeile['Beschreibung'] . '</div>';
+      echo '<img src="' . $zeile['Bild'] . '" style="float: none; margin: 0 auto;"> </div></br>';
+			echo '<div class="row"><div class="col-lg-2"></div><div class="col-lg-8">' . $zeile['Beschreibung'] . '</div></div></br>';
+      echo '<div class="row"><div class="col-lg-2 "></div><div class="col-lg-8" style="float: none; margin: 0 auto;">' . $zeile['Maps'] . '</div></div></br>';
+      echo '<div class="row"><div class="col-lg-2"></div><div class="col-lg-8" style="margin-left: 40%;"><a href="stadt.php?lid=' .$zeile['ID']. "\">". " Als PDF ansehen</a></div></div></br>";
 			}
 
+
 			?>
+
+      </div>
         </div>
       </div>
     </section>
