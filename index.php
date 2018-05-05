@@ -1,3 +1,6 @@
+<?php
+require('constant.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,6 +20,42 @@
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+    <script src="component/jquery/jquery-3.2.1.min.js"></script>
+    <script>
+    $(document).ready(function (e){
+      $("#frmContact").on('submit',(function(e){
+        e.preventDefault();
+        $("#mail-status").hide();
+        $('#send-message').hide();
+        $('#loader-icon').show();
+        $.ajax({
+          url: "contact.php",
+          type: "POST",
+          dataType:'json',
+          data: {
+          "name":$('input[name="name"]').val(),
+          "email":$('input[name="email"]').val(),
+          "phone":$('input[name="phone"]').val(),
+          "content":$('textarea[name="content"]').val(),
+          "g-recaptcha-response":$('textarea[id="g-recaptcha-response"]').val()},
+          success: function(response){
+          $("#mail-status").show();
+          $('#loader-icon').hide();
+          if(response.type == "error") {
+            $('#send-message').show();
+            $("#mail-status").attr("class","error");
+          } else if(response.type == "message"){
+            $('#send-message').hide();
+            $("#mail-status").attr("class","success");
+          }
+          $("#mail-status").html(response.text);
+          },
+          error: function(){}
+        });
+      }));
+    });
+    </script>
 
     <!-- Plugin CSS -->
     <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
@@ -241,21 +280,30 @@
         <div class="row">
           <div class="col-lg-12 mr-auto text-center">
             <i class="fa fa-envelope-o fa-3x mb-3 sr-contact"></i>
-        			<form method="post" action="send_email.php">
-        			<label for="Name"><b>Name:</b></label><br>
-        			<input type="text" id="Name" name="Name"><br><br>
-
-        			<label for="Email"><b>E-Mail:</b></label><br>
-        			<input type="text" id="Email" name="Email"><br><br>
-
-        			<label for="Betreff"><b>Betreff:</b></label><br>
-        			<input type="text" id="Betreff" name="Betreff"><br><br>
-
-        			<label for="Nachricht"><b>Nachricht:</b></label><br>
-        			<textarea id="Nachricht" name="Nachricht" rows="10" cols="50"></textarea> <br><br>
-              <div class="g-recaptcha" data-sitekey="6Ld0eVcUAAAAAPrYYhqvuO-dRlIs1hckLgEZdb9b" style="margin-left: 36%;"></div><br>
-        			<input type="submit" name="submit">
-        			</form>
+            <div id="message">
+            <form id="frmContact" action="" method="POST" novalidate="novalidate">
+              <div class="label">Name:</div>
+              <div class="field">
+                <input type="text" id="name" name="name" class="required" aria-required="true" required>
+              </div><br>
+              <div class="label">Email:</div>
+              <div class="field">
+                <input type="text" id="email" name="email" class="required email" aria-required="true" required>
+              </div><br>
+              <div class="label">Telefonnummer:</div>
+              <div class="field">
+                <input type="text" id="phone" name="phone" class="required phone" aria-required="true" required>
+              </div><br>
+              <div class="label">Kommentar:</div>
+              <div class="field">
+                <textarea id="comment-content" name="content"></textarea>
+              </div><br>
+              <div class="g-recaptcha" data-sitekey="<?php echo SITE_KEY; ?>" style="margin-left:36%;"></div><br>
+              <div id="mail-status"></div>
+              <button type="Submit" id="send-message" style="clear:both;">Nachricht senden</button>
+            </form>
+            <div id="loader-icon" style="display:none;"><img src="img/loader.gif" /></div>
+            </div>
           </div>
         </div>
       </div>
