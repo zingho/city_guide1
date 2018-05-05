@@ -54,41 +54,36 @@
 
     <section id="services">
       <div class="container">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-		  <?php
+          <div class="col-lg-4">
 
-      $lid = $_GET['lid'];
+            <!-- Suchausgabe -->
+            <?php
+            			include('db_connect.php');
 
-			include('db_connect.php');
+                  // Begriff aus der Suche Auslesen
+                  $suche = $_POST['name'];
 
-			$sql = "
-			SELECT DISTINCT *
-			FROM staedte
-			WHERE
-      id = '$lid'
-			";
+            			// Bestimmen, nach was gesucht wird
+            			$sql = "
+            			SELECT DISTINCT *
+            			FROM staedte
+            			WHERE
+            			Name LIKE '%$suche%';
+            			";
 
-      $result = $connect->query($sql);
-      while($zeile = $result->fetch_assoc()){
-            echo '<h2 class="section-heading">'.$zeile['Name'];}
-             ?>
-             </h2>
-            <hr class="my-4">
-          </div>
-        </div>
-      </div>
-      <div class="container">
-        <div class="row">
-		<?php
+            			// Ausgabe der Suche
+            			$result = $connect->query($sql);
+            			if($result->num_rows>0){
+            					while($zeile = $result->fetch_assoc()){
+            					echo '<div class="row"><h2><a href="seiten.php?lid=' .$zeile['ID']. "\">". $zeile['Name'] . "</a></h2></div></br>";
+            					}
+            			}
 
-			$result = $connect->query($sql);
-			while($zeile = $result->fetch_assoc()){
-      echo '<img src="' . $zeile['Bild'] . '"> </div></br></br>';
-			echo '<div class="row">' . $zeile['Beschreibung'] . '</div>';
-			}
-
-			?>
+            			// Falls keine Einträge gefunden werden
+            			else{
+            				echo "<h3>Keine Ergebnisse für $suche gefunden</h3>";
+            			}
+            		?>
         </div>
       </div>
     </section>

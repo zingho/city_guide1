@@ -37,18 +37,16 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#about">Über uns</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#services">Städte</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact">Kontakt</a>
-            </li>
+
+            <!-- Suche -->
+            <form action="suche.php" method="post" id="search">
+              <table align="center" width="200">
+                <tr>
+                  <td width="60%"><input name="name" placeholder="Suche..." type="text" maxlength="255" size="20" /></td>
+                </tr>
+              </table>
+            </form>
+
           </ul>
         </div>
       </div>
@@ -99,7 +97,6 @@
             <div class="service-box mt-5 mx-auto">
               <i class="fa fa-4x fa-diamond text-primary mb-3 sr-icons"></i>
               <h3 class="mb-3">Traumhafte Städte!</h3>
-              <p class="text-muted mb-0">Our templates are updated regularly so they don't break.</p>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 text-center">
@@ -131,7 +128,7 @@
       <div class="container-fluid p-0">
         <div class="row no-gutters popup-gallery">
           <div class="col-lg-4 col-sm-6">
-            <a class="portfolio-box" href="seiten.php?stadt=mailand">
+            <a class="portfolio-box" href="seiten.php?lid=3">
               <img class="img-fluid" src="img/portfolio/thumbnails/1.jpg" alt="">
               <div class="portfolio-box-caption">
                 <div class="portfolio-box-caption-content">
@@ -146,7 +143,7 @@
             </a>
           </div>
           <div class="col-lg-4 col-sm-6">
-            <a class="portfolio-box" href="seiten.php?stadt=marseille">
+            <a class="portfolio-box" href="seiten.php?lid=4">
               <img class="img-fluid" src="img/portfolio/thumbnails/2.jpg" alt="">
               <div class="portfolio-box-caption">
                 <div class="portfolio-box-caption-content">
@@ -161,7 +158,7 @@
             </a>
           </div>
           <div class="col-lg-4 col-sm-6">
-            <a class="portfolio-box" href="seiten.php?stadt=tokyo">
+            <a class="portfolio-box" href="seiten.php?lid=5">
               <img class="img-fluid" src="img/portfolio/thumbnails/3.jpg" alt="">
               <div class="portfolio-box-caption">
                 <div class="portfolio-box-caption-content">
@@ -176,7 +173,7 @@
             </a>
           </div>
           <div class="col-lg-4 col-sm-6">
-            <a class="portfolio-box" href="seiten.php?stadt=barcelona">
+            <a class="portfolio-box" href="seiten.php?lid=1">
               <img class="img-fluid" src="img/portfolio/thumbnails/4.jpg" alt="">
               <div class="portfolio-box-caption">
                 <div class="portfolio-box-caption-content">
@@ -191,7 +188,7 @@
             </a>
           </div>
           <div class="col-lg-4 col-sm-6">
-            <a class="portfolio-box" href="seiten.php?stadt=sydney">
+            <a class="portfolio-box" href="seiten.php?lid=6">
               <img class="img-fluid" src="img/portfolio/thumbnails/5.jpg" alt="">
               <div class="portfolio-box-caption">
                 <div class="portfolio-box-caption-content">
@@ -206,7 +203,7 @@
             </a>
           </div>
           <div class="col-lg-4 col-sm-6">
-            <a class="portfolio-box" href="seiten.php?stadt=vancouver">
+            <a class="portfolio-box" href="seiten.php?lid=2">
               <img class="img-fluid" src="img/portfolio/thumbnails/6.jpg" alt="">
               <div class="portfolio-box-caption">
                 <div class="portfolio-box-caption-content">
@@ -226,7 +223,7 @@
 
     <section class="bg-dark text-white">
       <div class="container text-center">
-        
+
       </div>
     </section>
 
@@ -245,16 +242,16 @@
 			<form method="post" action="send_email.php">
 			<label for="Name"><b>Name:</b></label><br>
 			<input type="text" id="Name" name="Name"><br><br>
-			 
+
 			<label for="Email"><b>E-Mail:</b></label><br>
 			<input type="text" id="Email" name="Email"><br><br>
-			 
+
 			<label for="Betreff"><b>Betreff:</b></label><br>
 			<input type="text" id="Betreff" name="Betreff"><br><br>
-			 
+
 			<label for="Nachricht"><b>Nachricht:</b></label><br>
 			<textarea id="Nachricht" name="Nachricht" rows="10" cols="50"></textarea> <br><br>
-			 
+
 			<input type="submit" name="submit">
 			</form>
           </div>
