@@ -93,7 +93,10 @@ require('constant.php');
       </div>
     </nav>
 
-    <header class="masthead text-center text-white d-flex">
+    
+	<!-- Inhalt -->
+	
+	<header class="masthead text-center text-white d-flex">
       <div class="container my-auto">
         <div class="row">
           <div class="col-lg-10 mx-auto">
@@ -169,7 +172,7 @@ require('constant.php');
       <div class="container-fluid p-0">
         <div class="row no-gutters popup-gallery">
           <div class="col-lg-4 col-sm-6">
-            <a class="portfolio-box" href="seiten.php?lid=3">
+            <a class="portfolio-box" href="seiten.php?lid=3"> <!-- Link zu individueller Seite -->
               <img class="img-fluid" src="img/portfolio/thumbnails/1.jpg" alt="">
               <div class="portfolio-box-caption">
                 <div class="portfolio-box-caption-content">
@@ -184,7 +187,7 @@ require('constant.php');
             </a>
           </div>
           <div class="col-lg-4 col-sm-6">
-            <a class="portfolio-box" href="seiten.php?lid=4">
+            <a class="portfolio-box" href="seiten.php?lid=4"> <!-- Link zu individueller Seite -->
               <img class="img-fluid" src="img/portfolio/thumbnails/2.jpg" alt="">
               <div class="portfolio-box-caption">
                 <div class="portfolio-box-caption-content">
@@ -199,7 +202,7 @@ require('constant.php');
             </a>
           </div>
           <div class="col-lg-4 col-sm-6">
-            <a class="portfolio-box" href="seiten.php?lid=5">
+            <a class="portfolio-box" href="seiten.php?lid=5"> <!-- Link zu individueller Seite -->
               <img class="img-fluid" src="img/portfolio/thumbnails/3.jpg" alt="">
               <div class="portfolio-box-caption">
                 <div class="portfolio-box-caption-content">
@@ -214,7 +217,7 @@ require('constant.php');
             </a>
           </div>
           <div class="col-lg-4 col-sm-6">
-            <a class="portfolio-box" href="seiten.php?lid=1">
+            <a class="portfolio-box" href="seiten.php?lid=1"> <!-- Link zu individueller Seite -->
               <img class="img-fluid" src="img/portfolio/thumbnails/4.jpg" alt="">
               <div class="portfolio-box-caption">
                 <div class="portfolio-box-caption-content">
@@ -229,7 +232,7 @@ require('constant.php');
             </a>
           </div>
           <div class="col-lg-4 col-sm-6">
-            <a class="portfolio-box" href="seiten.php?lid=6">
+            <a class="portfolio-box" href="seiten.php?lid=6"> <!-- Link zu individueller Seite -->
               <img class="img-fluid" src="img/portfolio/thumbnails/5.jpg" alt="">
               <div class="portfolio-box-caption">
                 <div class="portfolio-box-caption-content">
@@ -244,7 +247,7 @@ require('constant.php');
             </a>
           </div>
           <div class="col-lg-4 col-sm-6">
-            <a class="portfolio-box" href="seiten.php?lid=2">
+            <a class="portfolio-box" href="seiten.php?lid=2"> <!-- Link zu individueller Seite -->
               <img class="img-fluid" src="img/portfolio/thumbnails/6.jpg" alt="">
               <div class="portfolio-box-caption">
                 <div class="portfolio-box-caption-content">
@@ -268,7 +271,9 @@ require('constant.php');
       </div>
     </section>
 
-    <section id="contact">
+   <!-- Kontaktformular -->
+
+   <section id="contact">
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto text-center">
@@ -281,7 +286,9 @@ require('constant.php');
           <div class="col-lg-12 mr-auto text-center">
             <i class="fa fa-envelope-o fa-3x mb-3 sr-contact"></i>
             <div id="message">
-            <form id="frmContact" action="" method="POST" novalidate="novalidate">
+            
+			<!-- Formularfelder -->
+			<form id="frmContact" action="" method="POST" novalidate="novalidate">
               <div class="label">Name:</div>
               <div class="field">
                 <input type="text" id="name" name="name" class="required" aria-required="true" required>
@@ -298,7 +305,9 @@ require('constant.php');
               <div class="field">
                 <textarea id="comment-content" name="content"></textarea>
               </div><br>
-              <div class="g-recaptcha" data-sitekey="<?php echo SITE_KEY; ?>" style="margin-left:36%;"></div><br>
+              
+			  <!-- ReCaptcha -->
+			  <div class="g-recaptcha" data-sitekey="<?php echo SITE_KEY; ?>" style="margin-left:36%;"></div><br>
               <div id="mail-status"></div>
               <button type="Submit" id="send-message" style="clear:both;">Nachricht senden</button>
             </form>

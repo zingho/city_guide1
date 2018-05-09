@@ -56,9 +56,12 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
+		  
+		  <!-- Bedingungen -->
+		  
 		  <?php
 
-      $lid = $_GET['lid'];
+			$lid = $_GET['lid'];
 
 			include('db_connect.php');
 
@@ -66,32 +69,35 @@
 			SELECT DISTINCT *
 			FROM staedte
 			WHERE
-      id = '$lid'
+			id = '$lid'
 			";
 
-      $result = $connect->query($sql);
-      while($zeile = $result->fetch_assoc()){
-            echo '<h2 class="section-heading">'.$zeile['Name'];}
-             ?>
-             </h2>
-            <hr class="my-4">
-          </div>
-        </div>
-      </div>
-      <div class="container">
-        <div class="row">
-		<?php
+			  $result = $connect->query($sql);
+			  while($zeile = $result->fetch_assoc()){
+					echo '<h2 class="section-heading">'.$zeile['Name'];}
+					 ?>
+					 
+			</h2>
+			<hr class="my-4">
+			</div>
+			</div>
+			</div>
+			<div class="container">
+			<div class="row">
+			
+			<!-- Ausgabe der Einzelseite -->
+			<?php
 
-			$result = $connect->query($sql);
-			while($zeile = $result->fetch_assoc()){
-      echo '<img src="' . $zeile['Bild'] . '" style="margin-left: -15%;"> </div></br>';
-			echo '<div class="row"><div class="col-lg-2"></div><div class="col-lg-8">' . $zeile['Beschreibung'] . '</div></div></br>';
-      echo '<div class="row"><div class="col-lg-2 "></div><div class="col-lg-8" style="float: none; margin: 0 auto;">' . $zeile['Maps'] . '</div></div></br>';
-      echo '<div class="row"><div class="col-lg-2"></div><div class="col-lg-8" style="margin-left: 40%;"><a href="stadt.php?lid=' .$zeile['ID']. "\">". " Als PDF ansehen</a></div></div></br>";
-			}
+			  $result = $connect->query($sql);
+			  while($zeile = $result->fetch_assoc()){
+			  echo '<img src="' . $zeile['Bild'] . '" style="margin-left: -15%;"> </div></br>';
+			  echo '<div class="row"><div class="col-lg-2"></div><div class="col-lg-8">' . $zeile['Beschreibung'] . '</div></div></br>';
+			  echo '<div class="row"><div class="col-lg-2 "></div><div class="col-lg-8" style="float: none; margin: 0 auto;">' . $zeile['Maps'] . '</div></div></br>';
+			  echo '<div class="row"><div class="col-lg-2"></div><div class="col-lg-8" style="margin-left: 40%;"><a href="stadt.php?lid=' .$zeile['ID']. "\">". " Als PDF ansehen</a></div></div></br>";
+					}
 
 
-			?>
+				?>
 
       </div>
         </div>
